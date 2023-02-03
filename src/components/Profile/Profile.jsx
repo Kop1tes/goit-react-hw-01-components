@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { ProfileList, Description, Avatar, Name, Quantity, Tag, Location, Stats, Stat, Label } from "./Profile.styled";
 
-
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export const Profile = ({ username, tag, location, avatar, followers, views, likes }) => {
     return (
         <ProfileList>
             <Description>
@@ -18,15 +17,15 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
             <Stats>
                 <Stat>
                     <Label>Followers</Label>
-                    <Quantity>{stats.followers}</Quantity>
+                    <Quantity>{followers}</Quantity>
                 </Stat>
                 <Stat>
                     <Label>Views</Label>
-                    <Quantity>{stats.views}</Quantity>
+                    <Quantity>{views}</Quantity>
                 </Stat>
                 <Stat>
                     <Label>Likes</Label>
-                    <Quantity>{stats.likes}</Quantity>
+                    <Quantity>{likes}</Quantity>
                 </Stat>
             </Stats>
         </ProfileList>
@@ -38,9 +37,7 @@ Profile.propTypes = {
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
-    stats: PropTypes.exact({
-        followers: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
-    }).isRequired, 
 };
